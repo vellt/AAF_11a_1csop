@@ -5,100 +5,165 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2
+namespace ConsoleApp4
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // deklaráció
-            int a;
-            // értékéadás
-            a = 6;
+            // primitív típusok
+            // stack-->gyors
+            // nem lehet null értékű
+            int egeszSzam = 12;
+            double valosSzam = 3.5;
+            bool logikaiTipus = true; // false
+            char karakterTipus = 'a';
 
-            // definiálás(deklaráció + értékéadás)
-            int sz1 = 6; // egész (szám) érték
-            double sz2 = 3.7; // valós (szám) érték
+            // referencia típus
+            // heap-->lassabb
+            // tartalmazhat null értéket
+            string szovegesAdat = "alma";
+            char elsoKarakter= szovegesAdat[0]; // szöveges adat első eleme
+            char utolsoKarakter = szovegesAdat[szovegesAdat.Length-1]; // szöveges adat utolsó eleme
+            char[] karakterTomb = { 'a', 'l', 'm', 'a' }; // karakter tömb
+            int[] intTomb = { 1, 2, 3 }; // int tömb
 
-            // egyszerű feltételvizsgálat
-            if (sz1 > sz2)
-            {
-                Console.WriteLine("Az sz1 nagyobb");
-            }else if (sz1 < sz2)
-            {
-                Console.WriteLine("Az sz2 nagyobb");
-            }
-            else // minden más eset
-            {
-                Console.WriteLine("Az sz1 és az sz2 egyenlő");
-            }
-
-            // elnevezési konvenciók
-            string elsoVezeteknev = "alma"; //camelCase
-
-
-            // egysoros komment
-            // int h = null; 
-
-            // többsoros komment
+            //------------------------------------------------------
             /*
-            kjdyhkfdsh
-                ksjhsueh
+             több
+             soros 
+             komment
+             */
 
-                kjahku
-                */
+            //------------------------------------------------------
 
-            // egyszerű adatbekérés, és a szöveges adat számmá való konvertálása
-            Console.WriteLine("Add meg a korod:");
-            string felh= Console.ReadLine();
-            int kor = Convert.ToInt32(felh);
-            if (kor>=18)
+            // definiálás
+            int h = 12; // deklaráció + értékadás
+
+            // deklaráció
+            int u;
+            // érétkadás
+            u = 5;
+
+            //------------------------------------------------------
+
+            // konvertálás (pl string-->int)
+            int sz = Convert.ToInt32("5");
+            // implicit konvertálás (kicsiből --> nagyba) (pl int-->double)
+            double sz2 = 6;
+            // explicit konvertáció / kasztolás (nagyból-->kicsibe) (pl double-->int)
+            int sz3 = (int)22.6;
+
+
+            //------------------------------------------------------
+
+
+            // konzolkezelés 
+            // kiíratás, adatbekérés, konvertálás, if
+            Console.WriteLine("Add meg az egyik számot: ");
+            int egyikSzam = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Add meg a másik számot: ");
+            int masikSzam = Convert.ToInt32(Console.ReadLine());
+            if (egyikSzam<masikSzam)
             {
-                Console.WriteLine("beléphetsz a traffikba");
+                Console.WriteLine($"második({masikSzam}) a nagyobb"); //második(6) a nagyobb
+            }
+            else if(egyikSzam>masikSzam)
+            {
+                Console.WriteLine($"Első({elsoKarakter}) a nagyobb"); // Első(6) a nagyobb
             }
             else
             {
-                Console.WriteLine("nem léphetsz be");
+                Console.WriteLine("A két szám egyforma");
             }
 
+            //------------------------------------------------------
 
-            // implicit konvertálás (kicsiből --> nagyba)
-            int szam = 10;
-            double szam2 = szam;
-
-            // explicit (nagybol-->kicsibe)
-            double sz = 2.6;
-            int sz3 = (int)sz;
-            
-
-            // speciélis karakterek \ (vissza perjel)
-            // \n új sor
-            // \t tabulálás
-            Console.WriteLine("Ez egy új sor karakter\n és egy tab: \t.");
-
-
-            Console.WriteLine("adj meg egy szamot");
-            string szoveg= Console.ReadLine();
-            int szamom = Convert.ToInt32(szoveg);
-            if (szamom % 2 == 0) // annak vizsgálata hogy a szám páros-e
+            // konzolkezelés
+            // kiíratás, bekérés, konvertálás, if
+            Console.WriteLine("BARKÓBA");
+            Console.WriteLine("Tippelj egy számra (1-5)");
+            int tipp = Convert.ToInt32(Console.ReadLine());
+            int gep = 4;
+            if (tipp==gep)
             {
-                Console.WriteLine($"páros: {a}"); // string interpoláció
+                Console.WriteLine("Igen. Ez az amire én gondoltam");
             }
             else
             {
-                Console.WriteLine($"páratlan: {a}");
+                Console.WriteLine("Nem erre gondoltam");
+                Console.WriteLine($"Amire én gondoltam az a(z): {gep}");
             }
 
-            
-            int b = 7, c=9;
-            Console.WriteLine($"ez egy szám: {b}, {c}");
-            // alternatív string interpoláció
-            Console.WriteLine("ez egy szám: {0}, {1}",b, c);
-            Console.WriteLine("ez egy szám: " + b + ", " + c);
+            //------------------------------------------------------
 
-            Console.ReadKey(); // ez azért kell, hogy a program ne záródjon be!
+
+            // szamolás
+            // osztásnál figyelni!
+            // legalább az egyik tag double legyen!
+            // hogy kapjunk az eredményben tizedeseket!
+            int a = 2, b = 6;
+            int osszeadas = a + b;
+            int kivonas = a - b;
+            int szorzas = a * b;
+            double osztas = a / (double)b;
+            Console.WriteLine($"{a}+{b}={osszeadas}");
+            Console.WriteLine($"{a}-{b}={kivonas}");
+            Console.WriteLine($"{a}*{b}={szorzas}");
+            Console.WriteLine($"{a}/{b}={osztas:0.00}"); // kerekítés :0.00
+            Console.WriteLine($"{a}/{b}={Math.Round(osztas, 2)}"); // kerekítés Math.Round(ertek,tizedes)
+            Console.WriteLine(2.0/Convert.ToDouble(6)); // sok módszer van arra, hogy egy int double legyen!
+
+
+            //------------------------------------------------------
+
+
+            // Math osztályok alkalmazása
+
+            /*
+             Math.Round(valosSzam,Kerekites)- kerekítés
+             Math.Sqrt(akarmilyenSzam) - négyzetgyökvonás
+             Math.Pow(alap,kiveto) - hatványozás
+             Math.PI - pi értéke
+             */
+
+            Console.WriteLine("1. feladat");
+            int alap, kitevo; // szükséges változók deklarálása
+            Console.WriteLine("Add meg az alapot: ");
+            alap = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Add meg a kivetőt: ");
+            kitevo = Convert.ToInt32(Console.ReadLine());
+
+            // kiszámítjuk a bekért értékekkel a hatványt
+            double hatvany= Math.Pow(alap, kitevo);
+            Console.WriteLine(hatvany); // kiírjuk az eredményt
+            // A hatványozás eredményét négyzetgyök alá tesszük
+            double negyzet = Math.Sqrt(hatvany);
+            Console.WriteLine(Math.Round(negyzet,2)); // az eredmény 2 tizedes pontosan
+
+
+            //------------------------------------------------------
+
+            Console.WriteLine("2. feladat");
+            double r, K, T; // szükséges változók deklarálása
+            Console.WriteLine("Add meg a kör sugarát");
+            r = Convert.ToDouble(Console.ReadLine());
+
+            // terület, kerület kiszámítása, miután már tudjuk a kör sugarát
+            K = 2 * r * Math.PI;
+            T = r * r * Math.PI;
+            // kiíratjuk kerekítve az eredményt
+            Console.WriteLine($"K: {Math.Round(K,2)}");
+            Console.WriteLine($"T: {Math.Round(T,2)}");
+
+            //------------------------------------------------------
+
+            // HF: MF 27/1,2,3 feladat
+
+
+
+            Console.ReadKey(); // azért h ne záródjon be a program ha lefutott
         }
     }
 }
-
 ```
