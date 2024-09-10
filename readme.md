@@ -118,7 +118,7 @@ namespace ConsoleApp4
             //------------------------------------------------------
 
 
-            // Math osztályok alkalmazása
+            // Math osztály alkalmazása
 
             /*
              Math.Round(valosSzam,Kerekites)- kerekítés
