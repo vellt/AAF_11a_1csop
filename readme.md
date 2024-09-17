@@ -5,165 +5,100 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp4
+namespace ConsoleApp14
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // primitív típusok
-            // stack-->gyors
-            // nem lehet null értékű
-            int egeszSzam = 12;
-            double valosSzam = 3.5;
-            bool logikaiTipus = true; // false
-            char karakterTipus = 'a';
+            // kocka felszíne (A), térfogata (V)   
 
-            // referencia típus
-            // heap-->lassabb
-            // tartalmazhat null értéket
-            string szovegesAdat = "alma";
-            char elsoKarakter= szovegesAdat[0]; // szöveges adat első eleme
-            char utolsoKarakter = szovegesAdat[szovegesAdat.Length-1]; // szöveges adat utolsó eleme
-            char[] karakterTomb = { 'a', 'l', 'm', 'a' }; // karakter tömb
-            int[] intTomb = { 1, 2, 3 }; // int tömb
+            double a,A,V;
+            Console.WriteLine("Add meg az a értékét.");
+            a = Convert.ToDouble(Console.ReadLine());
+            A = 6* Math.Pow(a,2);
+            V = Math.Pow(a, 3);
+            Console.WriteLine($"A={Math.Round(A,2)}");
+            Console.WriteLine($"V={V:0.00}");
+            
+            //---------------------------------------------------
+            // henger felszíne (A), térfogata (V)
 
-            //------------------------------------------------------
-            /*
-             több
-             soros 
-             komment
-             */
-
-            //------------------------------------------------------
-
-            // definiálás
-            int h = 12; // deklaráció + értékadás
-
-            // deklaráció
-            int u;
-            // érétkadás
-            u = 5;
-
-            //------------------------------------------------------
-
-            // konvertálás (pl string-->int)
-            int sz = Convert.ToInt32("5");
-            // implicit konvertálás (kicsiből --> nagyba) (pl int-->double)
-            double sz2 = 6;
-            // explicit konvertáció / kasztolás (nagyból-->kicsibe) (pl double-->int)
-            int sz3 = (int)22.6;
-
-
-            //------------------------------------------------------
-
-
-            // konzolkezelés 
-            // kiíratás, adatbekérés, konvertálás, if
-            Console.WriteLine("Add meg az egyik számot: ");
-            int egyikSzam = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Add meg a másik számot: ");
-            int masikSzam = Convert.ToInt32(Console.ReadLine());
-            if (egyikSzam<masikSzam)
-            {
-                Console.WriteLine($"második({masikSzam}) a nagyobb"); //második(6) a nagyobb
-            }
-            else if(egyikSzam>masikSzam)
-            {
-                Console.WriteLine($"Első({elsoKarakter}) a nagyobb"); // Első(6) a nagyobb
-            }
-            else
-            {
-                Console.WriteLine("A két szám egyforma");
-            }
-
-            //------------------------------------------------------
-
-            // konzolkezelés
-            // kiíratás, bekérés, konvertálás, if
-            Console.WriteLine("BARKÓBA");
-            Console.WriteLine("Tippelj egy számra (1-5)");
-            int tipp = Convert.ToInt32(Console.ReadLine());
-            int gep = 4;
-            if (tipp==gep)
-            {
-                Console.WriteLine("Igen. Ez az amire én gondoltam");
-            }
-            else
-            {
-                Console.WriteLine("Nem erre gondoltam");
-                Console.WriteLine($"Amire én gondoltam az a(z): {gep}");
-            }
-
-            //------------------------------------------------------
-
-
-            // szamolás
-            // osztásnál figyelni!
-            // legalább az egyik tag double legyen!
-            // hogy kapjunk az eredményben tizedeseket!
-            int a = 2, b = 6;
-            int osszeadas = a + b;
-            int kivonas = a - b;
-            int szorzas = a * b;
-            double osztas = a / (double)b;
-            Console.WriteLine($"{a}+{b}={osszeadas}");
-            Console.WriteLine($"{a}-{b}={kivonas}");
-            Console.WriteLine($"{a}*{b}={szorzas}");
-            Console.WriteLine($"{a}/{b}={osztas:0.00}"); // kerekítés :0.00
-            Console.WriteLine($"{a}/{b}={Math.Round(osztas, 2)}"); // kerekítés Math.Round(ertek,tizedes)
-            Console.WriteLine(2.0/Convert.ToDouble(6)); // sok módszer van arra, hogy egy int double legyen!
-
-
-            //------------------------------------------------------
-
-
-            // Math osztályok alkalmazása
-
-            /*
-             Math.Round(valosSzam,Kerekites)- kerekítés
-             Math.Sqrt(akarmilyenSzam) - négyzetgyökvonás
-             Math.Pow(alap,kiveto) - hatványozás
-             Math.PI - pi értéke
-             */
-
-            Console.WriteLine("1. feladat");
-            int alap, kitevo; // szükséges változók deklarálása
-            Console.WriteLine("Add meg az alapot: ");
-            alap = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Add meg a kivetőt: ");
-            kitevo = Convert.ToInt32(Console.ReadLine());
-
-            // kiszámítjuk a bekért értékekkel a hatványt
-            double hatvany= Math.Pow(alap, kitevo);
-            Console.WriteLine(hatvany); // kiírjuk az eredményt
-            // A hatványozás eredményét négyzetgyök alá tesszük
-            double negyzet = Math.Sqrt(hatvany);
-            Console.WriteLine(Math.Round(negyzet,2)); // az eredmény 2 tizedes pontosan
-
-
-            //------------------------------------------------------
-
-            Console.WriteLine("2. feladat");
-            double r, K, T; // szükséges változók deklarálása
-            Console.WriteLine("Add meg a kör sugarát");
+            double r, m, V, A;
+            Console.WriteLine("Add meg az r értékét");
             r = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Add meg az m értékét");
+            m = Convert.ToDouble(Console.ReadLine());
+            A = 2 * r * r * Math.PI + 2 * r * Math.PI * m;
+            V = r * r * Math.PI * m;
+            Console.WriteLine($"A={Math.Round(A,3)}");
+            Console.WriteLine($"V={V:0.000}");
 
-            // terület, kerület kiszámítása, miután már tudjuk a kör sugarát
-            K = 2 * r * Math.PI;
-            T = r * r * Math.PI;
-            // kiíratjuk kerekítve az eredményt
-            Console.WriteLine($"K: {Math.Round(K,2)}");
-            Console.WriteLine($"T: {Math.Round(T,2)}");
+            //---------------------------------------------------
+            // köbgyök-->hatványazonosság
 
-            //------------------------------------------------------
+            int x;
+            double eredmeny;
+            Console.WriteLine("Adj meg egy számot és megmondom a kbgyökét");
+            x = Convert.ToInt32(Console.ReadLine());
+            eredmeny = Math.Pow(x, 1 / (double)3);
+            Console.WriteLine($"eredmeny={Math.Round(eredmeny,4)}");
 
-            // HF: MF 27/1,2,3 feladat
+            //---------------------------------------------------
+            // kasszás program
+
+            int db500, db1000, db2000, db5000, db10000, db20000, osszesen;
+
+            Console.WriteLine("500=");
+            db500 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("1000=");
+            db1000 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("2000=");
+            db2000 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("5000=");
+            db5000 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("10000=");
+            db10000 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("20000=");
+            db20000 = Convert.ToInt32(Console.ReadLine());
+
+            osszesen = 500 * db500 + 
+                1_000 * db1000 + 
+                2_000 * db2000 + 
+                5_000 * db5000 + 
+                10_000 * db10000 + 
+                20_000 * db20000;
+
+            Console.WriteLine($"A pénztárban: {osszesen} Forint van");
+            double bonusz = osszesen * 0.05;
+            Console.WriteLine($"Ennyi forint jár a kasszásnak: {bonusz}");
+
+            //---------------------------------------------------
+            // Adj meg két számot és megmondom melyik a nagyobb!
+
+            int a, b;
+            Console.Write("Add meg egy számot: ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Add meg még egy számot: ");
+            b = Convert.ToInt32(Console.ReadLine());
+            if (a>b)
+            {
+                Console.WriteLine(a);
+            }
+            else
+            {
+                Console.WriteLine(b);
+            }
 
 
-
-            Console.ReadKey(); // azért h ne záródjon be a program ha lefutott
+            Console.ReadKey(); // a képernyőt nem zárja be, ha ez itt van!
         }
     }
 }
+
 ```
