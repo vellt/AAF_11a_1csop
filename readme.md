@@ -131,7 +131,7 @@ namespace ConsoleApp1
             // -------------------------------------------------
             // ilyen jellegű feladatra NEM kell számítani, véletlenül jött elő
             // viszont akit érdekel a megoldása, itt lesz:
-            Console.Write($"Adj meg egy oszeget: ");
+            Console.Write("Adj meg egy oszeget: ");
             string oszeg = Console.ReadLine();
             char utolsoKarakter = oszeg[oszeg.Length - 1];
             int maradek = Convert.ToInt32(utolsoKarakter.ToString()) % 5;
