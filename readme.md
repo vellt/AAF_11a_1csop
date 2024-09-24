@@ -132,20 +132,20 @@ namespace ConsoleApp1
             // ilyen jellegű feladatra NEM kell számítani, véletlenül jött elő
             // viszont akit érdekel a megoldása, itt lesz:
             Console.Write("Adj meg egy oszeget: ");
-            string oszeg = Console.ReadLine();
-            char utolsoKarakter = oszeg[oszeg.Length - 1];
+            string osszeg = Console.ReadLine();
+            char utolsoKarakter = osszeg[osszeg.Length - 1];
             int maradek = Convert.ToInt32(utolsoKarakter.ToString()) % 5;
             if (maradek == 0)
             {
-                Console.WriteLine(oszeg);
+                Console.WriteLine(osszeg);
             }
             else if (maradek>= 3)
             {
-                Console.WriteLine(Convert.ToInt32(oszeg)+(5-maradek));
+                Console.WriteLine(Convert.ToInt32(osszeg)+(5-maradek));
             }
             else
             {
-                Console.WriteLine(Convert.ToInt32(oszeg) - (maradek));
+                Console.WriteLine(Convert.ToInt32(osszeg) - (maradek));
             }
             
             // -------------------------------------------------
