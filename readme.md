@@ -132,7 +132,7 @@ namespace ConsoleApp1
             // ilyen jellegű feladatra NEM kell számítani, véletlenül jött elő
             // viszont akit érdekel a megoldása, itt lesz:
 
-            Console.Write("Adj meg egy oszeget: ");
+            Console.Write("Adj meg egy osszeget: ");
             string osszeg = Console.ReadLine();
 
             char utolsoKarakter = osszeg[osszeg.Length - 1];
