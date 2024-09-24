@@ -135,11 +135,7 @@ namespace ConsoleApp1
             string osszeg = Console.ReadLine();
             char utolsoKarakter = osszeg[osszeg.Length - 1];
             int maradek = Convert.ToInt32(utolsoKarakter.ToString()) % 5;
-            if (maradek == 0)
-            {
-                Console.WriteLine(osszeg);
-            }
-            else if (maradek>= 3)
+            if (maradek>= 3)
             {
                 Console.WriteLine(Convert.ToInt32(osszeg)+(5-maradek));
             }
