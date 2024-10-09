@@ -5,75 +5,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mintadoga
+namespace ConsoleApp29
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int x, y;
-            Console.Write("x: ");
-            x = Convert.ToInt32(Console.ReadLine());
-            Console.Write("y: ");
-            y = Convert.ToInt32(Console.ReadLine());
+            // random számok generálása
+            Random r = new Random();
+            int sz1 = r.Next(100); // [0,99]
+            int sz2 = r.Next(101) - 50; // [-50,50]
+            int sz3 = r.Next(7) + 2; // [2,8]
+            int sz4 = r.Next(7) + 4; // [4,10]
+            int sz5 = r.Next(7) + 25; // [25,31]
+            int sz6 = r.Next(82) + 0; // [0,81] itt a plusz 0 az nem kötelező!
+            int sz7 = r.Next(6) - 2; // [-2,3]
+            int sz8 = r.Next(6) - 10; // [-10, -5]
+            int sz9 = r.Next(4) - 15; // [-15, -12]
+            int sz10 = r.Next(81) - 30; // [-30, 50]
+            
+            // -----------------------------------------------
+            // ciklusok
+            // írjuk ki 5x hogy hello, majd 10000x,azért látszik, hogy 5-nél még
+            // csak csak megcsináljuk, de 10000x történőismétlésnél már nem ctrl+c-zünk
+            // erre lesznek a ciklusok, hogy az ismétlődést automatikusan elvégezze
+            Console.WriteLine("hello");
+            Console.WriteLine("hello");
+            Console.WriteLine("hello");
+            Console.WriteLine("hello");
+            Console.WriteLine("hello");
 
-
-            double szam1, szam2;
-
-            // a
-            szam1 = 1.8 * Math.Pow(x, 3);
-            szam2 = 1.8 * Math.Pow(y, 4);
-            if (szam1 > szam2)
+            // 5x írjuk, ki, hogy hello
+            int lepes = 0;
+            while (lepes<5)
             {
-                Console.WriteLine($"a) {Math.Round(szam1, 2)} nagyobb, mint {Math.Round(szam2, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam1 - szam2, 2)}");
-            }
-            else
-            {
-                Console.WriteLine($"a) {Math.Round(szam2, 2)} nagyobb, mint {Math.Round(szam1, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam2 - szam1, 2)}");
-            }
-
-            // b
-            szam1 = Math.Pow(x, 1 / 31.0);
-            szam2 = Math.Pow(y, 1 / 7.0);
-            if (szam1 > szam2)
-            {
-                Console.WriteLine($"b) {Math.Round(szam1, 2)} nagyobb, mint {Math.Round(szam2, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam1 - szam2, 2)}");
-            }
-            else
-            {
-                Console.WriteLine($"b) {Math.Round(szam2, 2)} nagyobb, mint {Math.Round(szam1, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam2 - szam1, 2)}");
-            }
-
-            // c
-            szam1 = ((double)x / 4) / (5.0 / y);
-            szam2 = 2 * (Math.Pow(x, 2) - (y / 3.0));
-            if (szam1 > szam2)
-            {
-                Console.WriteLine($"c) {Math.Round(szam1, 2)} nagyobb, mint {Math.Round(szam2, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam1 - szam2, 2)}");
-            }
-            else
-            {
-                Console.WriteLine($"c) {Math.Round(szam2, 2)} nagyobb, mint {Math.Round(szam1, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam2 - szam1, 2)}");
-            }
-
-            // d
-            szam1 = (2.5+x*Math.Pow(y,2)) / (2*x+y);
-            szam2 = Math.PI;
-            if (szam1 > szam2)
-            {
-                Console.WriteLine($"d) {Math.Round(szam1, 2)} nagyobb, mint {Math.Round(szam2, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam1 - szam2, 2)}");
-            }
-            else
-            {
-                Console.WriteLine($"d) {Math.Round(szam2, 2)} nagyobb, mint {Math.Round(szam1, 2)}");
-                Console.WriteLine($"\tEnnyivel: {Math.Round(szam2 - szam1, 2)}");
+                Console.WriteLine("hello");
+                lepes++;
             }
 
             Console.ReadKey();
@@ -81,5 +48,6 @@ namespace mintadoga
         }
     }
 }
+
 
 ```
