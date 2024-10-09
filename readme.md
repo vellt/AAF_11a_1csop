@@ -23,6 +23,10 @@ namespace ConsoleApp29
             int sz8 = r.Next(6) - 10; // [-10, -5]
             int sz9 = r.Next(4) - 15; // [-15, -12]
             int sz10 = r.Next(81) - 30; // [-30, 50]
+
+            // van két paraméteres next is, de azt mi nem fogjuk használni!
+            // csak jövőre!
+            int szam11 = r.Next(-30, 81); //[-30, 80]
             
             // -----------------------------------------------
             // ciklusok
