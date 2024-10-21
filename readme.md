@@ -65,7 +65,7 @@ namespace ConsoleApp40
                 Console.WriteLine($"{Math.Round(d1, 2)} nagyobb, mint {Math.Round(d2, 2)}");
                 Console.WriteLine($"\tEnnyivel: {Math.Round(d1 - d2, 2)}");
             }
-            if (a1 < a2)
+            if (d1 < d2)
             {
                 Console.WriteLine($"{Math.Round(d2, 2)} nagyobb, mint {Math.Round(d1, 2)}");
                 Console.WriteLine($"\tEnnyivel: {Math.Round(d2 - d1, 2)}");
