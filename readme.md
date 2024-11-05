@@ -5,187 +5,196 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp45
+namespace ConsoleApp49
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // logikai kapuk: 
-            // ÉS (AND): &&
-            // VAGY (OR): ||
-            // tagadás (NOT): !
-            // döntsük el, hogy vehet-e valaki Legót
-            Console.Write("Add meg a korod, megmondom vehetsz-e legót: ");
-            int kor = Convert.ToInt32(Console.ReadLine());
-            if (kor>=6 && kor<=99) // és miatt mind a két feltételnek teljesülnie kell!
+            // 1 --------------------------------------------------------
+            Console.WriteLine("Adj meg egy számot és kiírom a 10szeresét");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(a * 10);
+            
+            // 2 --------------------------------------------------------
+            Console.Write("Add meg az egyik számot: "); // Vajon mi a külöbség a Write és a WriteLine között??
+            int sz1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Add meg a másik számot: ");
+            int sz2 = Convert.ToInt32(Console.ReadLine());
+
+            if (sz1 > sz2)
             {
-                Console.WriteLine("Vehetsz Legót!");
+                Console.WriteLine("Az első szám a nagyobb");
             }
-            else if (kor > 99)
+            else if (sz1 == sz2) // két egyenlőség jel összehasonlítás, egy egyenlőség jel értékadás
             {
-                Console.WriteLine("Te túl öreg vagy!");
-            }
-            else if (kor>=0 && kor<=5)// és miatt mind a két feltételnek teljesülnie kell!
-            {
-                Console.WriteLine("Túl fiatal vagy!");
+                Console.WriteLine("Egyenlőek");
             }
             else
             {
-                Console.WriteLine("Ilyen nincs!");
+                Console.WriteLine("A második szám a nagyobb");
             }
+            
+            // 3 --------------------------------------------------------
+            Console.WriteLine("Add meg a születési évedet:");
+            int ev = Convert.ToInt32(Console.ReadLine());
+            int kor = DateTime.Now.Year - ev; // 2024-et helyettesítettük a DateTime.Now.Year-el
+            Console.WriteLine($"Te {kor} éves vagy.");
 
-            // v2-es rövidítése a Legósnak
-            if (kor >= 6 && kor <= 99) Console.WriteLine("Vehetsz Legót!");
-            else if (kor > 99) Console.WriteLine("Te túl öreg vagy!");
-            else if (kor >= 0 && kor <= 5) Console.WriteLine("Túl fiatal vagy!");
-            else Console.WriteLine("Ilyen nincs!");
-
-            // v3-as rövidítése a Legósnak, hámas operátorral
-            Console.WriteLine((kor >= 6 && kor <= 99) ? "Vehetsz Legót!" : (kor > 99)? "Te túl öreg vagy!": (kor >= 0 && kor <= 5)? "Túl fiatal vagy!": "Ilyen nincs!");
-
-
-            //--------------------------------------
-            // Mi lehet az abszolút értéket számoló Math metódus mögött?
-            // abszolút érték az, hogy -5-->5, 5-->5, tehát a minuszt leszedi!
-            int abs = Math.Abs(-5); //5
-            int abs2 = Math.Abs(5); //5
-
-            int sz = -5;
-            // v1-es megvalósítása az absz. érték algoritmizálására
-            if (sz<0)
+            if (kor<18) // 18 alatti
             {
-                Console.WriteLine(sz+2*sz); // vagy sz*-1
+                Console.WriteLine("Te még nem érettségiztél.");
+            }
+            else // 18 vagy feletti
+            {
+                Console.WriteLine("Te már érettségiztél.");
+            }
+            
+            // 4 --------------------------------------------------------
+            Console.WriteLine("Add meg a jelszót");
+            string jelszo = Console.ReadLine(); // egy egyenlőség jel az értékadás
+
+            if (jelszo == "jelszo123") // két egyenlőség jel összehasonlítás
+            {
+                Console.WriteLine("Helyes");
             }
             else
             {
-                Console.WriteLine(sz);
+                Console.WriteLine("Helytelen");
             }
-            // v2-es rövidítése az absz. értéknek
-            if (sz < 0) Console.WriteLine(sz + 2 * sz);
-            else Console.WriteLine(sz);
-            // v3 - hármas operátorral ugyan ez:
-            Console.WriteLine((sz < 0) ? sz + 2 * sz : sz);
             
+            // 5 --------------------------------------------------------
+            Console.WriteLine("add meg a jelszot: ");
+            string jelszo = Console.ReadLine();
+            int hossz = jelszo.Length; // bele rakjuk a hossz változóba a jelszó karakterhosszát
+        
+            if (hossz>10) //a hossz változó 10től nagyobb
+            {
+                Console.WriteLine("eros jelszo!");
+            }
+            else if (hossz<=10 && hossz >= 6) // ha a hossz változó 6 vagy a feletti, de 10 vagy az alatti szám
+            {
+                Console.WriteLine("közepes jelszo"); 
+            }
+            else
+            {
+                Console.WriteLine("gyenge jelszo"); // minden más eset, pl 1,2,3,4,5
+            }
+            
+            // 6 --------------------------------------------------------
+            Console.WriteLine("Add meg hány celsius fok van");
+            int C= Convert.ToInt32(Console.ReadLine());
 
-            //------------------------------------------
-            // KŐ, PAPÍR, OLLÓ algoritmizálása
+            int F = Convert.ToInt32(C*9/5.0+32); // osztási probléma --> osztáskor egyik tagja az osztásnak double legyen!
+            Console.WriteLine($"F={F}");
+
+            // 7 --------------------------------------------------------
+            Console.WriteLine("Add meg az osztályzatot");
+            int szam = Convert.ToInt32(Console.ReadLine());
+
+            switch (szam)
+            {
+                case 1: Console.WriteLine("elégtelen"); break;
+                case 2: Console.WriteLine("elégséges"); break;
+                case 3: Console.WriteLine("közepes"); break;
+                case 4: Console.WriteLine("jó"); break;
+                case 5: Console.WriteLine("jeles"); break;
+                default: Console.WriteLine("Ilyen osztályzat nincsen"); break; // minden más eset
+            }
+
+            // 8 --------------------------------------------------------
+            Console.WriteLine("Adj meg egy szamot: ");
+            int szam = Convert.ToInt32(Console.ReadLine());
+
+            if (szam % 2 == 0) // a számot, ha modulózom 2-vel és az 0-t ad vissza, akkor az páros
+            {
+                Console.WriteLine("paros");
+            }
+            else
+            {
+                Console.WriteLine("paratlan"); // egyébként nem..
+            }
             
+            // 9 --------------------------------------------------------
+            Console.WriteLine("Dobtam egy 7-es kockával, tippeld meg hogy hanyast dobtam.");
+            int tipp = Convert.ToInt32(Console.ReadLine());
+
             Random r = new Random();
-            int gep = r.Next(3);//[0,2]
-            Console.Write("Válaszd ki a fegyvered (0-->kő, 1-->papír, 2-->olló): ");
-            int felh = Convert.ToInt32(Console.ReadLine());
-            // kiírjuk a gép mire gondolt, de szövegesen
-            switch (gep)
+            int kocka = r.Next(7)+1; //[1,7]
+            if (tipp == kocka)  // a tippben az van amennyi a kocka dobása
             {
-                case 0: Console.WriteLine("gép: kő"); break;
-                case 1: Console.WriteLine("gép: papír"); break;
-                default: Console.WriteLine("gép: olló"); break;
+                Console.WriteLine($"A szám amit dobtam: {kocka}. Gratulálok eltaláltad!");
             }
-            // kiírjuk a felhasználó mit választott, de szövegesen
-            switch (felh)
+            else if (tipp > 7) // ha a tipp nagyobb mint 7
             {
-                case 0: Console.WriteLine("felhasználó: kő"); break;
-                case 1: Console.WriteLine("felhasználó: papír"); break;
-                default: Console.WriteLine("felhasználó: olló"); break;
+                Console.WriteLine("7-nél nagyobb számot nem dobhattam.");
             }
-
-            // játék logika
-            if (gep == 0 && felh == 2 ||
-                gep == 1 && felh == 0 ||
-                gep == 2 && felh == 1) 
+            else if (tipp < 1) // ha a tippem 1től kisebb
             {
-                Console.WriteLine("A gép nyert");
+                Console.WriteLine("1-nél kisebb számot nem dobhattam.");
             }
-            else if (gep == felh)
+            else // 1-7között tippeltem, de nem találtam el a kockadobást
             {
-                Console.WriteLine("Döntetlen");
-            }
-            else
-            {
-                Console.WriteLine("nyertél");
+                Console.WriteLine($"A szám amit dobtam: {kocka}. Sajnos nem talált!");
             }
 
-            //--------------------------------------
+            // 10 --------------------------------------------------------
+            Console.WriteLine("Adj meg egy számot");
+            int nap = Convert.ToInt32(Console.ReadLine());
+
+            switch (nap)
+            {
+                case 1: Console.WriteLine("hetfo"); break;
+                case 2: Console.WriteLine("kedd"); break;
+                case 3: Console.WriteLine("szerda"); break;
+                case 4: Console.WriteLine("csutortok"); break;
+                case 5: Console.WriteLine("pentek"); break;
+                case 6: Console.WriteLine("szombat"); break;
+                case 7: Console.WriteLine("vasarnap"); break;
+                default: Console.WriteLine("1-7ig várok számot"); break; // miden más eset
+            }
             
-            // szimuláljunk egy dobókocka dobást
-            // és a generált dobást írjuk ki SZÖVEGESEN
-            Random r2 = new Random();
-            int dobokocka = r2.Next(6) + 1;
-            switch (dobokocka)
+            // 11 --------------------------------------------------------
+            // !!!!!!!!!!!!!!!!!osztási probléma bemutatása!!!!!!!!!!!!!!!!!!!
+            Console.WriteLine(9/5); //-->1-et fog kiírni (mert az osztás mind2 tagja int!!!!), pedig 1,8-at kellene
+            // ha már az osztás egyik tagja double, akkor jó eredményt mutat!
+            // ÉRJÜK EL VALAHOGY, HOGY AZ EGYIK TAG DOUBLE LEGYEN.
+            // TÖBB MÓDSZER IS VAN, PL
+            Console.WriteLine(9/5.0); // 1,8
+            Console.WriteLine(9/Convert.ToDouble(5)); // 1,8
+            Console.WriteLine(9/(double)5); // 1,8
+            
+            // EZÉRT OSZTÁSKOR ÜGYELJÜNK, HOGY AZ OSZTÁS (LEGALÁBB) EGYIK TAGJA LEGYEN DOUBLE TÍPUSÚ!!!
+            // EBBEN A FELADATBAN IS, MINT A CELSIUS-OSBAN .... VAN OSZTÁS...!
+            
+            Console.WriteLine("Adj meg egy számot");
+            int sz1 = Convert.ToInt32(Console.ReadLine()); // STRING TO INT
+
+            Console.WriteLine("Adj meg egy számot");
+            int sz2 = Convert.ToInt32(Console.ReadLine()); // STRING TO INT
+
+            Console.WriteLine("Adj meg egy műveletet");
+            char muvelet = Convert.ToChar(Console.ReadLine()); // STRING TO CHAR
+            // A CHAR EGY KARAKTER TÍPUS, KONKRÉTAN EGY KARAKTERT TUD TÁROLNI
+            // PL 'A' 'B' '+' '2' '$' STB
+            // ITT NEM ""(MACSKAKÖRÖM)-T HASZNÁLUNK HANEM ''(APOSZTRÓF)-T
+            // 'A'-->CHAR TÍPUS
+            // "A"--> STRING TÍPUS
+
+            switch (muvelet)
             {
-                case 1: Console.WriteLine("egy");break;
-                case 2: Console.WriteLine("ketto");break;
-                case 3: Console.WriteLine("három");break;
-                case 4: Console.WriteLine("négy");break;
-                case 5: Console.WriteLine("öt");break;
-                case 6: Console.WriteLine("hat");break;
+                case '+': Console.WriteLine(sz1 + sz2); break;
+                case '-': Console.WriteLine(sz1 - sz2); break;
+                case '*': Console.WriteLine(sz1 * sz2); break;
+                case '/': Console.WriteLine(Math.Round(sz1 / Convert.ToDouble(sz2), 2)); break; // ÜGYELTÜNK AZ OSZTÁSRA, és kerekítettünk: Math.Round(double érték, kerekítés mértéke)
+                case '%': Console.WriteLine(sz1 % sz2); break;
             }
 
-            //------------------------------------------
-            // Kérjünk be a felhasználótól egy hónapot
-            // majd írjuk ki, milyen évszak van!
-            Console.Write("Milyen hónap van? ");
-            string honap = Console.ReadLine();
-            // v1
-            switch (honap.ToLower())
-            {
-                case "december": Console.WriteLine("tél"); break;
-                case "január": Console.WriteLine("tél"); break;
-                case "február": Console.WriteLine("tél"); break;
-                case "március": Console.WriteLine("tavasz"); break;
-                case "április": Console.WriteLine("tavasz"); break;
-                case "május": Console.WriteLine("tavasz"); break;
-                case "június": Console.WriteLine("nyár"); break;
-                case "július": Console.WriteLine("nyár"); break;
-                case "augusztus": Console.WriteLine("nyár"); break;
-                case "szeptember": Console.WriteLine("ősz"); break;
-                case "október": Console.WriteLine("ősz"); break;
-                case "november": Console.WriteLine("ősz"); break;
-            }
-            // v2
-            switch (honap.ToLower())
-            {
-                case "december": 
-                case "január": 
-                case "február":
-                    Console.WriteLine("tél");
-                    break;
-                case "március":
-                case "április":
-                case "május":
-                    Console.WriteLine("tavasz");
-                    break;
-                case "június": 
-                case "július": 
-                case "augusztus":
-                    Console.WriteLine("nyár");
-                    break;
-                case "szeptember":
-                case "október": 
-                case "november":
-                    Console.WriteLine("ősz");
-                    break;
-            }
-            //---------------------------------------------------
-            // RANDOM GYAKORLÁS
 
-            Random r3 = new Random();
-            // A NEXT-be ne kerüljön negatív szám!!!!!
-            int sz1 = r3.Next(4) + 2; // [2,5]
-            int sz2 = r3.Next(5) + 6; // [6,10]
-            int sz3 = r3.Next(8) -2; // [-2,5]
-            int sz4 = r3.Next(41) - 60; // [-60,-20]
-            int sz5 = r3.Next(8); // [0,7]
-            int sz6 = r3.Next(51); // [0,50]
-            int sz7 = r3.Next(12) + 51; // [51,62]
-            int sz8 = r3.Next(106) + 105; // [105,210]
-            int sz9 = r3.Next(101)-50; // [-50,50]
-            int sz10 = r3.Next(301)-100; // [-100,200]
-
-            Console.ReadKey(); //<-- hogy ne záródjon be a program!
         }
     }
 }
+
 
 ```
