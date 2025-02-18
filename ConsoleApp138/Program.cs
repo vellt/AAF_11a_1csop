@@ -50,8 +50,10 @@ namespace ConsoleApp138
             }
             Console.WriteLine(ossz);
 
-            // eldöntés tétele: igaz/hamis választ vár
-            // van-e benne alma
+            // eldöntés tétele: igaz/hamis választ vár. 
+            // van-e benne körte
+            // összetett bennmaradási feltételt használ: gyumolcsok.Length && vanE==false
+            // erre azért van szükség, mert ha már megtalálta a keresett elemet, lépjen ki a ciklusból
             bool vanE = false;
             for (int i = 0; i < gyumolcsok.Length && vanE==false; i++)
             {
