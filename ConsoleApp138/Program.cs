@@ -52,8 +52,9 @@ namespace ConsoleApp138
 
             // eldöntés tétele: igaz/hamis választ vár. 
             // van-e benne körte
-            // összetett bennmaradási feltételt használ: gyumolcsok.Length && vanE==false
-            // erre azért van szükség, mert ha már megtalálta a keresett elemet, lépjen ki a ciklusból
+            // (összetett bennmaradási feltételt használ: gyumolcsok.Length && vanE==false
+            // mindkettőre szükség van, hogy a ciklus ismétlődjön, azért van &&-el összekapcsolva, 
+            // plusz azt érjük el vele, ha már megtalálta a keresett elemet, elhagyja a ciklust, nem ismétlődik)
             bool vanE = false;
             for (int i = 0; i < gyumolcsok.Length && vanE==false; i++)
             {
