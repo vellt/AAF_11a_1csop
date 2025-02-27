@@ -1,0 +1,7 @@
+C:\Users\user\Downloads\metodusok11a\ConsoleApp145\ConsoleApp145\bin\Debug\ConsoleApp145.exe.config
+C:\Users\user\Downloads\metodusok11a\ConsoleApp145\ConsoleApp145\bin\Debug\ConsoleApp145.exe
+C:\Users\user\Downloads\metodusok11a\ConsoleApp145\ConsoleApp145\bin\Debug\ConsoleApp145.pdb
+C:\Users\user\Downloads\metodusok11a\ConsoleApp145\ConsoleApp145\obj\Debug\ConsoleApp145.csprojAssemblyReference.cache
+C:\Users\user\Downloads\metodusok11a\ConsoleApp145\ConsoleApp145\obj\Debug\ConsoleApp145.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\metodusok11a\ConsoleApp145\ConsoleApp145\obj\Debug\ConsoleApp145.exe
+C:\Users\user\Downloads\metodusok11a\ConsoleApp145\ConsoleApp145\obj\Debug\ConsoleApp145.pdb
