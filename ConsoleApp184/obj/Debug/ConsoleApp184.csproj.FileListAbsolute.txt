@@ -1,0 +1,7 @@
+C:\Users\user\source\repos\ConsoleApp184\ConsoleApp184\bin\Debug\ConsoleApp184.exe.config
+C:\Users\user\source\repos\ConsoleApp184\ConsoleApp184\bin\Debug\ConsoleApp184.exe
+C:\Users\user\source\repos\ConsoleApp184\ConsoleApp184\bin\Debug\ConsoleApp184.pdb
+C:\Users\user\source\repos\ConsoleApp184\ConsoleApp184\obj\Debug\ConsoleApp184.csprojAssemblyReference.cache
+C:\Users\user\source\repos\ConsoleApp184\ConsoleApp184\obj\Debug\ConsoleApp184.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ConsoleApp184\ConsoleApp184\obj\Debug\ConsoleApp184.exe
+C:\Users\user\source\repos\ConsoleApp184\ConsoleApp184\obj\Debug\ConsoleApp184.pdb
